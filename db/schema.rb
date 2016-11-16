@@ -10,15 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116042839) do
+ActiveRecord::Schema.define(version: 20161116050519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "examples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "topic_id"
+    t.string   "title"
+    t.text     "pseudo"
+    t.index ["topic_id"], name: "index_examples_on_topic_id", using: :btree
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "topic_id"
+    t.string   "title"
+    t.string   "url"
+    t.integer  "example_id"
+    t.index ["example_id"], name: "index_links_on_example_id", using: :btree
+    t.index ["topic_id"], name: "index_links_on_topic_id", using: :btree
+  end
 
   create_table "topics", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.text     "summary"
   end
 
+  add_foreign_key "examples", "topics"
+  add_foreign_key "links", "examples"
+  add_foreign_key "links", "topics"
 end

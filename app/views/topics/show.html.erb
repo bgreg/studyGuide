@@ -3,14 +3,14 @@
 
 <ul>
   <% @topic.examples.each do |example| %>
-    <li> <%= link_to example.title, example_path(example) %> </li>
+    <li> <%= link_to example.title, topic_example_path(example) %> </li>
   <% end %>
 </ul>
 
 <footer>
   <ul>
-    <% @topic.resources.each do |resource| %>
-      <li> <%= link_to resource.title, resouce_path(resource) %> </li>
+    <% @topic.links.each do |link| %>
+      <li> <%= link_to link.title, topic_link_path(link) %> </li>
     <% end %>
   </ul>
 </footer>
