@@ -1,0 +1,17 @@
+<h1><%= @topic.name %></h1>
+<h4><%= @topic.summary %></h1>
+
+<ul>
+  <% @topic.examples.each do |example| %>
+    <li> <%= link_to example.title, example_path(example) %> </li>
+  <% end %>
+</ul>
+
+<footer>
+  <ul>
+    <% @topic.resources.each do |resource| %>
+      <li> <%= link_to resource.title, resouce_path(resource) %> </li>
+    <% end %>
+  </ul>
+</footer>
+
