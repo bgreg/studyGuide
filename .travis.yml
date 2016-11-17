@@ -1,0 +1,4 @@
+deploy:
+	provider: heroku
+	run:
+		- "rake db:migrate"
