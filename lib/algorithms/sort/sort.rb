@@ -2,7 +2,7 @@ class Sort
   def initialize(random_list:, verbose: false)
     @list       = random_list
     @verbose    = verbose
-    @last_index = @list.index(@list.last)
+    @last_index = @list.length - 1
   end
 
   protected
