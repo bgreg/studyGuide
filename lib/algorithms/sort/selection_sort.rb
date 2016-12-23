@@ -3,7 +3,7 @@ require_relative "sort"
 class SelectionSort < Sort
   def sort
     0.upto(@last_index).each do |i|
-      puts "@list: #{@list}" if @verbose
+      explain "@list: #{@list}"
       smallest = i
 
       (i + 1).upto(@last_index).each do |j|
@@ -11,7 +11,7 @@ class SelectionSort < Sort
       end
 
       swap(original_index: i, replacement_index: smallest)
-      puts "\n" if @verbose
+      explain "\n"
     end
 
     @list

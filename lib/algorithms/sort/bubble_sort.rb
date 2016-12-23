@@ -8,7 +8,7 @@ class BubbleSort < Sort
       a_swap_happened = false
 
       0.upto(@last_index).each do |i|
-        puts "@list #{@list}" if @verbose
+        explain "@list #{@list}"
         break if i == @last_index
 
         if @list[i] > @list[i + 1]
@@ -17,7 +17,7 @@ class BubbleSort < Sort
         end
       end
 
-      puts "\n" if @verbose
+      explain "\n"
       still_sorting = false unless a_swap_happened
     end
     @list

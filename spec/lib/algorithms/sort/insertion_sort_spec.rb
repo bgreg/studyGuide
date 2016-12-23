@@ -3,9 +3,7 @@ require "spec_helper"
 
 describe InsertionSort do
   describe "#sort" do
-    context ""\
-            ""\
-            "" do
+    context "Grabs items from the right of the array and finds where it belongs in the sorted, left side." do
       context "given a random list of numbers" do
         let(:randomized_array) do
           [73, 82, 54, 7, 88, 11, 8, 93, 99, 74, 18, 2, 90, 80, 93, 42, 36, 31, 19, 71]
